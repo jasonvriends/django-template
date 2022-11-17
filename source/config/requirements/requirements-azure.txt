@@ -1,0 +1,3 @@
+-r ${PWD}/config/requirements/base.txt
+
+django-storages[azure]

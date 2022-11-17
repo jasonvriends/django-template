@@ -1,0 +1,35 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block content %}
+
+  <div class="container container-tight py-4">
+
+    <div class="text-center mb-4">
+      <a href="{% url 'core:home' %}" class="navbar-brand navbar-brand-autodark"><img src="{% static 'logo.svg' %}" height="36" alt=""></a>
+    </div>
+
+    <div class="card card-md">
+
+      <div class="card-body">
+
+        <h2 class="h2 text-center mb-4">{% trans "Verify Your E-mail Address" %}</h2>
+
+        <div class="mb-3">
+          <label class="form-label">
+            {% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. If you do not see the verification e-mail in your main inbox, check your spam folder. Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

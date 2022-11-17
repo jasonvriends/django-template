@@ -1,0 +1,76 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+  <div class="container container-tight py-4">
+
+    <div class="text-center mb-4">
+      <a href="{% url 'core:home' %}" class="navbar-brand navbar-brand-autodark"><img src="{% static 'logo.svg' %}" height="36" alt=""></a>
+    </div>
+
+    <div class="card card-md">
+
+      <div class="card-body">
+
+        <h2 class="h2 text-center mb-4">Sign up for an account</h2>
+
+        <div class="mb-3">
+          <label class="form-label" id="{{ field.id_for_label }}">
+            {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
+          </label>
+        </div>
+
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}" autocomplete="off" novalidate>
+          {% csrf_token %}
+
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          {% for field in form.visible_fields %}
+
+            <div class="mb-3">
+              <label class="form-label" id="{{ field.id_for_label }}">
+                {{ field.label }}
+              </label>
+              {{ field | add_class:"form-control" | add_error_class:"form-control is-invalid" }}
+              {% if field.errors %}
+                {% for error in field.errors %}
+                  <div class="alert alert-danger mt-1">
+                    <strong>{{ error|escape }}</strong>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+          {% endfor %}
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger mt-1">
+              <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary w-100">{% trans "Sign Up" %}</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+django
+django-environ
+django-allauth
+whitenoise
+psycopg2-binary
+argon2-cffi
+psycopg2-binary
+django-widget-tweaks
+pillow
+gunicorn

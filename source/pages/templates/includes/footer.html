@@ -1,0 +1,39 @@
+<footer class="footer footer-transparent d-print-none">
+  <div class="container-xl">
+    <div class="row text-center align-items-center flex-row-reverse">
+      <div class="col-lg-auto ms-lg-auto">
+        <ul class="list-inline list-inline-dots mb-0">
+          <li class="list-inline-item"><a href="#" class="link-secondary">Link 1</a></li>
+          <li class="list-inline-item"><a href="#" class="link-secondary">Link 2</a></li>
+          <li class="list-inline-item"><a href="#" class="link-secondary" rel="noopener">Link 3</a></li>
+          <li class="list-inline-item">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-spy-off" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 11h8m4 0h6"></path>
+              <path d="M5 11v-4c0 -.571 .16 -1.105 .437 -1.56m2.563 -1.44h8a3 3 0 0 1 3 3v4"></path>
+              <circle cx="7" cy="17" r="3"></circle>
+              <path d="M14.88 14.877a3 3 0 1 0 4.239 4.247m.59 -3.414a3.012 3.012 0 0 0 -1.425 -1.422"></path>
+              <path d="M10 17h4"></path>
+              <path d="M3 3l18 18"></path>
+            </svg>
+            <a href="{% url 'core:privacypolicy' %}" class="link-secondary" rel="noopener">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+        <ul class="list-inline list-inline-dots mb-0">
+          <li class="list-inline-item">
+            Copyright &copy; 2022
+            <a href="." class="link-secondary">{{ PROJECT_NAME }}</a>.
+            All rights reserved.
+          </li>
+          <li class="list-inline-item">
+            <a href="#" class="link-secondary" rel="noopener">
+              v0.0.1-beta
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

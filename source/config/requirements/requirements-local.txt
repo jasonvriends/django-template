@@ -1,0 +1,7 @@
+-r ${PWD}/config/requirements/base.txt
+
+pre-commit
+seed-isort-config
+isort
+black
+flake8

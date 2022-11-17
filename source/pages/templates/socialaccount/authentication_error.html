@@ -1,0 +1,35 @@
+{% extends "socialaccount/base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Social Network Login Failure" %}{% endblock %}
+
+{% block content %}
+
+  <div class="container container-tight py-4">
+
+    <div class="text-center mb-4">
+      <a href="{% url 'core:home' %}" class="navbar-brand navbar-brand-autodark"><img src="{% static 'logo.svg' %}" height="36" alt=""></a>
+    </div>
+
+    <div class="card card-md">
+
+      <div class="card-body">
+
+        <h2 class="h2 text-center mb-4">{% trans "Social Network Login Failure" %}</h2>
+
+        <div class="mb-3">
+          <label class="form-label">
+            {% trans "An error occurred while attempting to login via your social network account." %}
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

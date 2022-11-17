@@ -1,0 +1,57 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+
+  <div class="container container-tight py-4">
+
+    <div class="text-center mb-4">
+      <a href="{% url 'core:home' %}" class="navbar-brand navbar-brand-autodark"><img src="{% static 'logo.svg' %}" height="36" alt=""></a>
+    </div>
+
+    <div class="card card-md">
+
+      <div class="card-body">
+
+        <h2 class="h2 text-center mb-4">Logout of your account</h2>
+
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          <div class="mb-3">
+            <label class="form-label">
+              Are you sure you want to sign out?
+            </label>
+          </div>
+
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger mt-1">
+              <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+          {% endif %}
+
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary w-100">{% trans "Sign Out" %}</button>
+          </div>
+
+        </form>
+
+      </div><!-- card-body -->
+
+    </div><!-- card card-md -->
+
+  </div><!-- container container-tight py-4 -->
+
+{% endblock %}

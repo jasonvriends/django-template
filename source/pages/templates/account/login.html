@@ -1,0 +1,112 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+  <div class="container container-tight py-4">
+
+    <div class="text-center mb-4">
+      <a href="{% url 'core:home' %}" class="navbar-brand navbar-brand-autodark"><img src="{% static 'logo.svg' %}" height="36" alt=""></a>
+    </div>
+
+    <div class="card card-md">
+
+      <div class="card-body">
+
+        <h2 class="h2 text-center mb-4">Login to your account</h2>
+
+        <form class="login" method="POST" action="{% url 'account_login' %}" autocomplete="off" novalidate>
+
+          {% csrf_token %}
+
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+
+          {% for field in form.visible_fields %}
+
+            {% if field.name == 'password' %}
+
+              <div class="mb-3">
+                <label class="form-label" id="{{ field.id_for_label }}">
+                  {{ field.label }}
+                  <span class="form-label-description mb-1">
+                    <a href="{% url 'account_reset_password' %}">I forgot password</a>
+                  </span>
+                  {{ field | add_class:"form-control" | add_error_class:"form-control is-invalid" }}
+                  {% if field.errors %}
+                    {% for error in field.errors %}
+                      <div class="alert alert-danger mt-1">
+                        <strong>{{ error|escape }}</strong>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </label>
+              </div>
+
+            {% elif field.name == 'remember' %}
+
+              <div class="mb-3">
+                <label class="form-check" id="{{ field.id_for_label }}">
+                  {{ field|append_attr:"class:form-check-input" }}
+                  <span class="form-check-label">Remember me on this device</span>
+                </label>
+              </div>
+
+            {% else %}
+
+              <div class="mb-3">
+                <label class="form-label" id="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field | add_class:"form-control" | add_error_class:"form-control is-invalid" }}
+                {% if field.errors %}
+                  {% for error in field.errors %}
+                    <div class="alert alert-danger mt-1">
+                      <strong>{{ error|escape }}</strong>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              </div>
+
+            {% endif %}
+
+          {% endfor %}
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger mt-1">
+              <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary w-100">{% trans "Sign In" %}</button>
+          </div>
+
+        </form>
+
+      </div><!-- card-body -->
+
+      <div class="hr-text">or</div>
+
+      <div class="card-body">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+      </div>
+
+    </div><!-- card card-md -->
+
+    <div class="text-center text-muted mt-3">
+      Don't have account yet? <a href="{% url 'account_signup' %}" tabindex="-1">Sign up</a>
+    </div>
+
+  </div><!-- container container-tight py-4 -->
+
+{% endblock %}

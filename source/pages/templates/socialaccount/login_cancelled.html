@@ -1,0 +1,41 @@
+{% extends "socialaccount/base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Login Cancelled" %}{% endblock %}
+
+{% block content %}
+
+  <div class="container container-tight py-4">
+
+    <div class="text-center mb-4">
+      <a href="{% url 'core:home' %}" class="navbar-brand navbar-brand-autodark"><img src="{% static 'logo.svg' %}" height="36" alt=""></a>
+    </div>
+
+    <div class="card card-md">
+
+      <div class="card-body">
+
+        <h2 class="h2 text-center mb-4">{% trans "Login Cancelled" %}</h2>
+
+        <div class="mb-3">
+          <label class="form-label">
+            {% url 'account_login' as login_url %}
+          </label>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            {% blocktrans %}You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to <a href="{{login_url}}">sign in</a>.{% endblocktrans %}
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
