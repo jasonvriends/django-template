@@ -172,9 +172,9 @@ This project includes **Django settings** and **Python packages** for both **loc
 
 - Stand up the PostgreSQL database using Docker-Compose (you need Docker and Docker-Compose already installed)
     ```
-    cd deployment/docker
+    cd ../deployment/docker
     docker-compose up -d
-    cd ..
+    cd ../../source
     ```
 
 - Seed the database
