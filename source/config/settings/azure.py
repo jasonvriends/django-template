@@ -1,5 +1,6 @@
 from config.settings.base import *
 from config.settings.base import env
+from config.settings.base import DJANGO_APPS, LOCAL_APPS, THIRD_PARTY_APPS, env
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -20,6 +21,8 @@ THIRD_PARTY_APPS += [
 
 LOCAL_APPS += [
 ]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # STORAGE
 # ------------------------------------------------------------------------------
