@@ -286,6 +286,7 @@ This project includes **Django settings** and **Python packages** for both **loc
   DJANGO_EMAIL_HOST="your-email-smtp" \
   DJANGO_EMAIL_PORT="587" \
   DJANGO_EMAIL_USE_TLS="True" \
+  DJANGO_DEFAULT_FROM_EMAIL="do-not-reply@domain.com" \
   DJANGO_SETTINGS_MODULE="config.settings.azure" \
   PROJECT_NAME="django-starter" \
   PROJECT_PRIVACY_COUNTRY="Ontario, Canada" \

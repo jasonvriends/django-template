@@ -15,6 +15,7 @@
 - [ ] feature: disable admin console via setting
 - [ ] feature: [code error notifications](https://docs.djangoproject.com/en/dev/ref/settings/#admins) via setting
 - [ ] feature: [broken link notifications](https://docs.djangoproject.com/en/dev/ref/settings/#managers) via setting
+- [x] bug: DEFAULT_FROM_EMAIL
 
 ## v0.0.1-beta
 
