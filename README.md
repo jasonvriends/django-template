@@ -1,4 +1,4 @@
-# django-starter
+# django-template
 
 Starting a Django project from scratch is no easy task. Save yourself a significant amount of time by using this seed project. This is a ```batteries included``` project, covering common capabilities such as: authentication, authorization, custom user models, user profiles, and much more.
 
@@ -32,7 +32,7 @@ Django is a high-level Python web framework that enables rapid development of se
 
 ## Development Environment
 
-The following system configuration was used for the development of django-starter:
+The following system configuration was used for the development of django-template:
 - Windows 11
   - Docker Desktop
     - PostgreSQL 14.6-alpine
@@ -104,7 +104,7 @@ This project includes **Django settings** and **Python packages** for both **loc
 
 - Clone this Git repository to your development environment
   ```
-  git clone https://github.com/jasonvriends/django-starter.git <new_project_name>
+  git clone https://github.com/jasonvriends/django-template.git <new_project_name>
   ```
 
 - Change the remote origin of the cloned Git repository to your Git repository
@@ -156,7 +156,7 @@ This project includes **Django settings** and **Python packages** for both **loc
    echo DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/postgres >> .env
    echo DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1 >> .env
    echo DJANGO_SETTINGS_MODULE=config.settings.local >> .env
-   echo PROJECT_NAME=django-starter >> .env
+   echo PROJECT_NAME=django-template >> .env
    echo PROJECT_PRIVACY_COUNTRY=Ontario, Canada >> .env
    echo PROJECT_PRIVACY_WEBSITE=http://mywebsite.com >> .env
    echo PROJECT_PRIVACY_EMAIL=your@email.com >> .env
@@ -288,7 +288,7 @@ This project includes **Django settings** and **Python packages** for both **loc
   DJANGO_EMAIL_USE_TLS="True" \
   DJANGO_DEFAULT_FROM_EMAIL="do-not-reply@domain.com" \
   DJANGO_SETTINGS_MODULE="config.settings.azure" \
-  PROJECT_NAME="django-starter" \
+  PROJECT_NAME="django-template" \
   PROJECT_PRIVACY_COUNTRY="Ontario, Canada" \
   PROJECT_PRIVACY_WEBSITE="https://$webappName.azurewebsites.net" \
   PROJECT_PRIVACY_EMAIL="your@email.com" \
